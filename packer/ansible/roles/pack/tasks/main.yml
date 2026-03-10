@@ -1,0 +1,32 @@
+---
+- name: Install nginx
+  dnf:
+    name: nginx
+    state: present
+
+- name: Create default index.html placeholder
+  copy:
+    content: |
+      <!DOCTYPE html>
+      <html>
+      <head><title>Roadpass</title></head>
+      <body>
+        <h1>AMI baked successfully</h1>
+        <p>Runtime values will appear after launch.</p>
+      </body>
+      </html>
+    dest: /usr/share/nginx/html/index.html
+    mode: "0644"
+
+- name: Install render-index script
+  copy:
+    src: render-index.sh
+    dest: /usr/local/bin/render-index.sh
+    mode: "0755"
+
+- name: Enable and start nginx
+  systemd:
+    name: nginx
+    enabled: true
+    state: started
+    daemon_reload: true

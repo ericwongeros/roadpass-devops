@@ -1,0 +1,5 @@
+---
+- name: Regenerate nginx landing page from runtime config
+  ansible.builtin.command: /usr/local/bin/render-index.sh
+  when: ansible_facts['os_family'] == 'RedHat'
+  changed_when: true

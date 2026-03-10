@@ -1,0 +1,14 @@
+.terraform/
+.terragrunt-cache/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+*.pem
+packer/manifest.json
+packer/packer_cache/
+*.log
+.idea/
+.vscode/
+*.bak

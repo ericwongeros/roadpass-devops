@@ -1,0 +1,6 @@
+---
+- name: Pack nginx AMI
+  hosts: all
+  become: true
+  roles:
+    - role: pack
